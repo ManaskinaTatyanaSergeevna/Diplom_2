@@ -12,6 +12,10 @@ import java.util.Locale;
 
 public class LoginUserTest {
 
+    private final static String EMAIL = "test-data@yandex.ru";
+    private final static String PASSWORD = "password";
+    private final static String NAME = "Username";
+
     @Before
     public void setUp(){
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
@@ -20,16 +24,14 @@ public class LoginUserTest {
     @Test
     public void authorizationTest(){
         UserSteps userSteps = new UserSteps();
-        User user = new User();
-        user.setEmail("test-data@yandex.ru");
-        user.setPassword("password");
+        User user = new User(EMAIL,PASSWORD);
         Response response = userSteps.sendPostRequestApiAuthLogin(user);
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(true))
                 .and().body("accessToken", Matchers.notNullValue())
                 .and().body("refreshToken", Matchers.notNullValue())
                 .and().body("user.email", Matchers.is(user.getEmail().toLowerCase(Locale.ROOT)))
-                .and().body("user.name", Matchers.is("Username"))
+                .and().body("user.name", Matchers.is(NAME))
                 .and().statusCode(200);
     }
 
@@ -37,7 +39,7 @@ public class LoginUserTest {
     public void authorizationWithoutEmailTest(){
         UserSteps userSteps = new UserSteps();
         User user = new User();
-        user.setPassword("password");
+        user.setPassword(PASSWORD);
         Response response = userSteps.sendPostRequestApiAuthLogin(user);
         userSteps.checkFailedResponseApiAuthLogin(response);
 
@@ -47,13 +49,13 @@ public class LoginUserTest {
     public void authorizationWithoutPasswordTest(){
         UserSteps userSteps = new UserSteps();
         User user = new User();
-        user.setEmail("test-data@yandex.ru");
+        user.setEmail(EMAIL);
         Response response = userSteps.sendPostRequestApiAuthLogin(user);
         userSteps.checkFailedResponseApiAuthLogin(response);
     }
 
     @Test
-    public  void authorizationWithoutEmailAndPasswordTest(){
+    public void authorizationWithoutEmailAndPasswordTest(){
         UserSteps userSteps = new UserSteps();
         User user = new User();
         Response response = userSteps.sendPostRequestApiAuthLogin(user);
