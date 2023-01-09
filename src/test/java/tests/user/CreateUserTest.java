@@ -60,10 +60,7 @@ public class CreateUserTest {
         user.setEmail(email);
         user.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
-        response.then().log().all()
-                .assertThat().body("success", Matchers.is(false))
-                .and().body("message", Matchers.is("Email, password and name are required fields"))
-                .and().statusCode(403);
+        userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
@@ -75,10 +72,7 @@ public class CreateUserTest {
         user.setName(name);
         user.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
-        response.then().log().all()
-                .assertThat().body("success", Matchers.is(false))
-                .and().body("message", Matchers.is("Email, password and name are required fields"))
-                .and().statusCode(403);
+        userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
@@ -90,10 +84,7 @@ public class CreateUserTest {
         user.setEmail(email);
         user.setName(name);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
-        response.then().log().all()
-                .assertThat().body("success", Matchers.is(false))
-                .and().body("message", Matchers.is("Email, password and name are required fields"))
-                .and().statusCode(403);
+        userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
@@ -103,10 +94,7 @@ public class CreateUserTest {
         User user = new User();
         user.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
-        response.then().log().all()
-                .assertThat().body("success", Matchers.is(false))
-                .and().body("message", Matchers.is("Email, password and name are required fields"))
-                .and().statusCode(403);
+        userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
@@ -116,10 +104,7 @@ public class CreateUserTest {
         User user = new User();
         user.setEmail(email);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
-        response.then().log().all()
-                .assertThat().body("success", Matchers.is(false))
-                .and().body("message", Matchers.is("Email, password and name are required fields"))
-                .and().statusCode(403);
+        userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
@@ -129,9 +114,6 @@ public class CreateUserTest {
         User user = new User();
         user.setName(name);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
-        response.then().log().all()
-                .assertThat().body("success", Matchers.is(false))
-                .and().body("message", Matchers.is("Email, password and name are required fields"))
-                .and().statusCode(403);
+        userSteps.checkFailedResponseApiAuthRegister(response);
     }
 }
