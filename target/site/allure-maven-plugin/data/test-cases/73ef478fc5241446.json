@@ -1,0 +1,348 @@
+{
+  "uid" : "73ef478fc5241446",
+  "name" : "Изменение E-mail и пароля пользователя с авторизацией.",
+  "fullName" : "tests.user.ChangeUserDataTest.changeUserEmailAndPasswordWithAuthorizationTest",
+  "historyId" : "1ca0b1d8ab60bba696f42342c492b0f6",
+  "time" : {
+    "start" : 1673465438922,
+    "stop" : 1673465440007,
+    "duration" : 1085
+  },
+  "description" : "Изменение E-mail и пароля пользователя с авторизацией. Проверка успешного ответа сервера.",
+  "descriptionHtml" : "<p>Изменение E-mail и пароля пользователя с авторизацией. Проверка успешного ответа сервера.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Изменение E-mail и пароля пользователя с авторизацией. Проверка успешного ответа сервера.",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя. POST запрос на ручку /api/auth/register.",
+      "time" : {
+        "start" : 1673465438922,
+        "stop" : 1673465439281,
+        "duration" : 359
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "dba0e02b7c2c6c1a",
+        "name" : "Request",
+        "source" : "dba0e02b7c2c6c1a.html",
+        "type" : "text/html",
+        "size" : 777
+      }, {
+        "uid" : "245ac73c50fbc0a1",
+        "name" : "Request",
+        "source" : "245ac73c50fbc0a1.html",
+        "type" : "text/html",
+        "size" : 777
+      }, {
+        "uid" : "fb6d391a1a62b4a7",
+        "name" : "Request",
+        "source" : "fb6d391a1a62b4a7.html",
+        "type" : "text/html",
+        "size" : 777
+      }, {
+        "uid" : "223b6c2eee1fd8bf",
+        "name" : "Request",
+        "source" : "223b6c2eee1fd8bf.html",
+        "type" : "text/html",
+        "size" : 777
+      }, {
+        "uid" : "44b5c6fc653a885f",
+        "name" : "Request",
+        "source" : "44b5c6fc653a885f.html",
+        "type" : "text/html",
+        "size" : 777
+      }, {
+        "uid" : "3298a3954aec6d10",
+        "name" : "Request",
+        "source" : "3298a3954aec6d10.html",
+        "type" : "text/html",
+        "size" : 777
+      }, {
+        "uid" : "11abb776e1452db6",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "11abb776e1452db6.html",
+        "type" : "text/html",
+        "size" : 1993
+      }, {
+        "uid" : "2c8c14cc046df81d",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "2c8c14cc046df81d.html",
+        "type" : "text/html",
+        "size" : 1993
+      }, {
+        "uid" : "324752133c94d717",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "324752133c94d717.html",
+        "type" : "text/html",
+        "size" : 1993
+      }, {
+        "uid" : "e5d4bf3b15879816",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "e5d4bf3b15879816.html",
+        "type" : "text/html",
+        "size" : 1993
+      }, {
+        "uid" : "1549362c42403eb1",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "1549362c42403eb1.html",
+        "type" : "text/html",
+        "size" : 1993
+      }, {
+        "uid" : "8730a3b3a768a651",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "8730a3b3a768a651.html",
+        "type" : "text/html",
+        "size" : 1993
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@6231bb88"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 12,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "Изменение данных пользователя с авторизацией. PATCH запрос на ручку /api/auth/user.",
+      "time" : {
+        "start" : 1673465439289,
+        "stop" : 1673465439678,
+        "duration" : 389
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "e7111dbbdfe58fba",
+        "name" : "Request",
+        "source" : "e7111dbbdfe58fba.html",
+        "type" : "text/html",
+        "size" : 1145
+      }, {
+        "uid" : "2f6f5559222637bc",
+        "name" : "Request",
+        "source" : "2f6f5559222637bc.html",
+        "type" : "text/html",
+        "size" : 1145
+      }, {
+        "uid" : "c2d29ed4e1d112e5",
+        "name" : "Request",
+        "source" : "c2d29ed4e1d112e5.html",
+        "type" : "text/html",
+        "size" : 1145
+      }, {
+        "uid" : "242789b84522db6f",
+        "name" : "Request",
+        "source" : "242789b84522db6f.html",
+        "type" : "text/html",
+        "size" : 1145
+      }, {
+        "uid" : "49c9c136ea8776a0",
+        "name" : "Request",
+        "source" : "49c9c136ea8776a0.html",
+        "type" : "text/html",
+        "size" : 1145
+      }, {
+        "uid" : "43fb1ba031aaa66b",
+        "name" : "Request",
+        "source" : "43fb1ba031aaa66b.html",
+        "type" : "text/html",
+        "size" : 1145
+      }, {
+        "uid" : "39e14174d25ead3e",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "39e14174d25ead3e.html",
+        "type" : "text/html",
+        "size" : 1439
+      }, {
+        "uid" : "8cddf27eb91e55d9",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "8cddf27eb91e55d9.html",
+        "type" : "text/html",
+        "size" : 1439
+      }, {
+        "uid" : "1305cf940329a970",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "1305cf940329a970.html",
+        "type" : "text/html",
+        "size" : 1439
+      }, {
+        "uid" : "91c87489dc7c7af4",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "91c87489dc7c7af4.html",
+        "type" : "text/html",
+        "size" : 1439
+      }, {
+        "uid" : "4738bf0d3775fc31",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "4738bf0d3775fc31.html",
+        "type" : "text/html",
+        "size" : 1439
+      }, {
+        "uid" : "f31c308bc9ea457a",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "f31c308bc9ea457a.html",
+        "type" : "text/html",
+        "size" : 1439
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@5c4f07c1"
+      }, {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYmYwZTVmYzE2MWRhMDAxYjdhOGVhNyIsImlhdCI6MTY3MzQ2NTQzOSwiZXhwIjoxNjczNDY2NjM5fQ.L2uQyKP1WEDPJNiNz50qr_5UO1rUMEixbijEouTYGbA"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 12,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "Успешный ответ сервера на изменение данных пользователя.",
+      "time" : {
+        "start" : 1673465439678,
+        "stop" : 1673465439706,
+        "duration" : 28
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@711cd6f9"
+      }, {
+        "name" : "email",
+        "value" : "56712hvHaW@yandex.ru"
+      }, {
+        "name" : "name",
+        "value" : "NHKrFqMY6O"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "f123b1889bb4a376",
+      "name" : "Request",
+      "source" : "f123b1889bb4a376.html",
+      "type" : "text/html",
+      "size" : 819
+    }, {
+      "uid" : "1bf7aa094b5d39a7",
+      "name" : "Request",
+      "source" : "1bf7aa094b5d39a7.html",
+      "type" : "text/html",
+      "size" : 819
+    }, {
+      "uid" : "890f020e2773bb75",
+      "name" : "Request",
+      "source" : "890f020e2773bb75.html",
+      "type" : "text/html",
+      "size" : 819
+    }, {
+      "uid" : "a6b8b7f514ee9c04",
+      "name" : "Request",
+      "source" : "a6b8b7f514ee9c04.html",
+      "type" : "text/html",
+      "size" : 819
+    }, {
+      "uid" : "3925f1ceb74e7a89",
+      "name" : "Request",
+      "source" : "3925f1ceb74e7a89.html",
+      "type" : "text/html",
+      "size" : 819
+    }, {
+      "uid" : "afeb7c5f7030bbdd",
+      "name" : "Request",
+      "source" : "afeb7c5f7030bbdd.html",
+      "type" : "text/html",
+      "size" : 819
+    }, {
+      "uid" : "8c1af9179113be10",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "8c1af9179113be10.html",
+      "type" : "text/html",
+      "size" : 1306
+    }, {
+      "uid" : "b91f37b49d64f972",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "b91f37b49d64f972.html",
+      "type" : "text/html",
+      "size" : 1306
+    }, {
+      "uid" : "e4a9abd87c6ffe9b",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "e4a9abd87c6ffe9b.html",
+      "type" : "text/html",
+      "size" : 1306
+    }, {
+      "uid" : "61813aa2c727207a",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "61813aa2c727207a.html",
+      "type" : "text/html",
+      "size" : 1306
+    }, {
+      "uid" : "6d8ad981f066b168",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "6d8ad981f066b168.html",
+      "type" : "text/html",
+      "size" : 1306
+    }, {
+      "uid" : "844bf45954400afa",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "844bf45954400afa.html",
+      "type" : "text/html",
+      "size" : 1306
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 36,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests.user"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.user.ChangeUserDataTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "changeUserEmailAndPasswordWithAuthorizationTest"
+  }, {
+    "name" : "suite",
+    "value" : "tests.user.ChangeUserDataTest"
+  }, {
+    "name" : "host",
+    "value" : "SUVOROV-LAPTOP"
+  }, {
+    "name" : "thread",
+    "value" : "17980@SUVOROV-LAPTOP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "73ef478fc5241446.json",
+  "parameterValues" : [ ]
+}

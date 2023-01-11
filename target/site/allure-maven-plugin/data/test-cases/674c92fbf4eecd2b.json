@@ -1,0 +1,315 @@
+{
+  "uid" : "674c92fbf4eecd2b",
+  "name" : "Создание заказа с авторизацией.",
+  "fullName" : "tests.order.CreateOrderTest.createOrderWithAuthorizationTest",
+  "historyId" : "8d7f8f9eac785120724dbd2420470de0",
+  "time" : {
+    "start" : 1673465426736,
+    "stop" : 1673465428951,
+    "duration" : 2215
+  },
+  "description" : "Создание заказа с авторизацией. Проверка успешного ответа от сервера.",
+  "descriptionHtml" : "<p>Создание заказа с авторизацией. Проверка успешного ответа от сервера.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Создание заказа с авторизацией. Проверка успешного ответа от сервера.",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя. POST запрос на ручку /api/auth/register.",
+      "time" : {
+        "start" : 1673465426737,
+        "stop" : 1673465427147,
+        "duration" : 410
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "fb4538b0c1f3fef4",
+        "name" : "Request",
+        "source" : "fb4538b0c1f3fef4.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "a9ff6483a08564b",
+        "name" : "Request",
+        "source" : "a9ff6483a08564b.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "a104295cd55e9d8b",
+        "name" : "Request",
+        "source" : "a104295cd55e9d8b.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "187ddb7c1484cd1a",
+        "name" : "Request",
+        "source" : "187ddb7c1484cd1a.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "f892f8a5be2ecbbf",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "f892f8a5be2ecbbf.html",
+        "type" : "text/html",
+        "size" : 1996
+      }, {
+        "uid" : "fd12b2c91674ff8d",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "fd12b2c91674ff8d.html",
+        "type" : "text/html",
+        "size" : 1996
+      }, {
+        "uid" : "b59af16c2c170500",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "b59af16c2c170500.html",
+        "type" : "text/html",
+        "size" : 1996
+      }, {
+        "uid" : "ba3011d51e40e84f",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "ba3011d51e40e84f.html",
+        "type" : "text/html",
+        "size" : 1996
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@44b99467"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 8,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "Получение списка ингредиентов(объектов). GET запрос на ручку /api/ingredients.",
+      "time" : {
+        "start" : 1673465427157,
+        "stop" : 1673465427533,
+        "duration" : 376
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "96e6da221b2da2d5",
+        "name" : "Request",
+        "source" : "96e6da221b2da2d5.html",
+        "type" : "text/html",
+        "size" : 371
+      }, {
+        "uid" : "cf96a4fcc9bbaa5f",
+        "name" : "Request",
+        "source" : "cf96a4fcc9bbaa5f.html",
+        "type" : "text/html",
+        "size" : 371
+      }, {
+        "uid" : "394c9465d9274e7c",
+        "name" : "Request",
+        "source" : "394c9465d9274e7c.html",
+        "type" : "text/html",
+        "size" : 371
+      }, {
+        "uid" : "c8af5d16bafb3c81",
+        "name" : "Request",
+        "source" : "c8af5d16bafb3c81.html",
+        "type" : "text/html",
+        "size" : 371
+      }, {
+        "uid" : "be00e10e275e587f",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "be00e10e275e587f.html",
+        "type" : "text/html",
+        "size" : 12750
+      }, {
+        "uid" : "305664389f7abc",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "305664389f7abc.html",
+        "type" : "text/html",
+        "size" : 12750
+      }, {
+        "uid" : "c2dadfbf688b3ba0",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "c2dadfbf688b3ba0.html",
+        "type" : "text/html",
+        "size" : 12750
+      }, {
+        "uid" : "781a3e5a6b8d9e49",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "781a3e5a6b8d9e49.html",
+        "type" : "text/html",
+        "size" : 12750
+      } ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 8,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "Создание заказа с авторизацией. POST запрос на ручку /api/orders.",
+      "time" : {
+        "start" : 1673465427535,
+        "stop" : 1673465428489,
+        "duration" : 954
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "651679a5698873a1",
+        "name" : "Request",
+        "source" : "651679a5698873a1.html",
+        "type" : "text/html",
+        "size" : 1229
+      }, {
+        "uid" : "2dd01bcf63e0a391",
+        "name" : "Request",
+        "source" : "2dd01bcf63e0a391.html",
+        "type" : "text/html",
+        "size" : 1229
+      }, {
+        "uid" : "e717b25ac05841a2",
+        "name" : "Request",
+        "source" : "e717b25ac05841a2.html",
+        "type" : "text/html",
+        "size" : 1229
+      }, {
+        "uid" : "cf265f06bd90cfd3",
+        "name" : "Request",
+        "source" : "cf265f06bd90cfd3.html",
+        "type" : "text/html",
+        "size" : 1229
+      }, {
+        "uid" : "4d90d1091dd3c5a2",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "4d90d1091dd3c5a2.html",
+        "type" : "text/html",
+        "size" : 4756
+      }, {
+        "uid" : "1d5a21126cb92673",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "1d5a21126cb92673.html",
+        "type" : "text/html",
+        "size" : 4756
+      }, {
+        "uid" : "80eba2f4498f07ea",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "80eba2f4498f07ea.html",
+        "type" : "text/html",
+        "size" : 4756
+      }, {
+        "uid" : "de983b6f5b02dc7e",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "de983b6f5b02dc7e.html",
+        "type" : "text/html",
+        "size" : 4756
+      } ],
+      "parameters" : [ {
+        "name" : "order",
+        "value" : "api.model.Order@39329d81"
+      }, {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYmYwZTUzYzE2MWRhMDAxYjdhOGU5MiIsImlhdCI6MTY3MzQ2NTQyNywiZXhwIjoxNjczNDY2NjI3fQ.IjVOykFGBpTs6jH7EXWxW4jX6xpYtSy5DzeOt7LpmHc"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 8,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "2f1e0349e81e155",
+      "name" : "Request",
+      "source" : "2f1e0349e81e155.html",
+      "type" : "text/html",
+      "size" : 771
+    }, {
+      "uid" : "e4c3c0c609316829",
+      "name" : "Request",
+      "source" : "e4c3c0c609316829.html",
+      "type" : "text/html",
+      "size" : 771
+    }, {
+      "uid" : "72883f39af1a6d55",
+      "name" : "Request",
+      "source" : "72883f39af1a6d55.html",
+      "type" : "text/html",
+      "size" : 771
+    }, {
+      "uid" : "7041d6d47bb73211",
+      "name" : "Request",
+      "source" : "7041d6d47bb73211.html",
+      "type" : "text/html",
+      "size" : 771
+    }, {
+      "uid" : "f585a4ed3f2a6f0",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "f585a4ed3f2a6f0.html",
+      "type" : "text/html",
+      "size" : 1322
+    }, {
+      "uid" : "11dbf9e5a3ae6f48",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "11dbf9e5a3ae6f48.html",
+      "type" : "text/html",
+      "size" : 1322
+    }, {
+      "uid" : "e2a8090c6156be70",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "e2a8090c6156be70.html",
+      "type" : "text/html",
+      "size" : 1322
+    }, {
+      "uid" : "3f953b5a852a2544",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "3f953b5a852a2544.html",
+      "type" : "text/html",
+      "size" : 1322
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 32,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests.order"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.order.CreateOrderTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "createOrderWithAuthorizationTest"
+  }, {
+    "name" : "suite",
+    "value" : "tests.order.CreateOrderTest"
+  }, {
+    "name" : "host",
+    "value" : "SUVOROV-LAPTOP"
+  }, {
+    "name" : "thread",
+    "value" : "17980@SUVOROV-LAPTOP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "674c92fbf4eecd2b.json",
+  "parameterValues" : [ ]
+}

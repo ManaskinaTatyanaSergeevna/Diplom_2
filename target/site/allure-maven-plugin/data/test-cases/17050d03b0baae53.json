@@ -1,0 +1,231 @@
+{
+  "uid" : "17050d03b0baae53",
+  "name" : "Регистрация уникального пользователя.",
+  "fullName" : "tests.user.CreateUserTest.createUserTest",
+  "historyId" : "ce63c83bf0c244c16d257eccc38ccc8e",
+  "time" : {
+    "start" : 1673465451533,
+    "stop" : 1673465452236,
+    "duration" : 703
+  },
+  "description" : "Регистрация уникального пользователя со случайным набором данных. Проверка успешного ответа сервера.",
+  "descriptionHtml" : "<p>Регистрация уникального пользователя со случайным набором данных. Проверка успешного ответа сервера.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Регистрация уникального пользователя со случайным набором данных. Проверка успешного ответа сервера.",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя. POST запрос на ручку /api/auth/register.",
+      "time" : {
+        "start" : 1673465451533,
+        "stop" : 1673465451889,
+        "duration" : 356
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f1f13e643069c317",
+        "name" : "Request",
+        "source" : "f1f13e643069c317.html",
+        "type" : "text/html",
+        "size" : 779
+      }, {
+        "uid" : "90d4e9d1a618de2b",
+        "name" : "Request",
+        "source" : "90d4e9d1a618de2b.html",
+        "type" : "text/html",
+        "size" : 779
+      }, {
+        "uid" : "f1c3ae26e9f0e7c7",
+        "name" : "Request",
+        "source" : "f1c3ae26e9f0e7c7.html",
+        "type" : "text/html",
+        "size" : 779
+      }, {
+        "uid" : "c3766258ac3866f3",
+        "name" : "Request",
+        "source" : "c3766258ac3866f3.html",
+        "type" : "text/html",
+        "size" : 779
+      }, {
+        "uid" : "26669d6af89d7f48",
+        "name" : "Request",
+        "source" : "26669d6af89d7f48.html",
+        "type" : "text/html",
+        "size" : 779
+      }, {
+        "uid" : "b73df37f650936a7",
+        "name" : "Request",
+        "source" : "b73df37f650936a7.html",
+        "type" : "text/html",
+        "size" : 779
+      }, {
+        "uid" : "e0d8676429146e0b",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "e0d8676429146e0b.html",
+        "type" : "text/html",
+        "size" : 1985
+      }, {
+        "uid" : "4813c389be659504",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "4813c389be659504.html",
+        "type" : "text/html",
+        "size" : 1985
+      }, {
+        "uid" : "b23529280c11c4c5",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "b23529280c11c4c5.html",
+        "type" : "text/html",
+        "size" : 1985
+      }, {
+        "uid" : "bfa9ebf2890e92a4",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "bfa9ebf2890e92a4.html",
+        "type" : "text/html",
+        "size" : 1985
+      }, {
+        "uid" : "f6c9e21bd1d13080",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "f6c9e21bd1d13080.html",
+        "type" : "text/html",
+        "size" : 1985
+      }, {
+        "uid" : "f58737aaa49c2104",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "f58737aaa49c2104.html",
+        "type" : "text/html",
+        "size" : 1985
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@4694dfd"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 12,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "f07f91fcdc85cc96",
+      "name" : "Request",
+      "source" : "f07f91fcdc85cc96.html",
+      "type" : "text/html",
+      "size" : 775
+    }, {
+      "uid" : "62f0205250d7765f",
+      "name" : "Request",
+      "source" : "62f0205250d7765f.html",
+      "type" : "text/html",
+      "size" : 775
+    }, {
+      "uid" : "34f7d6835ed9d127",
+      "name" : "Request",
+      "source" : "34f7d6835ed9d127.html",
+      "type" : "text/html",
+      "size" : 775
+    }, {
+      "uid" : "93def55e514e3d05",
+      "name" : "Request",
+      "source" : "93def55e514e3d05.html",
+      "type" : "text/html",
+      "size" : 775
+    }, {
+      "uid" : "210f10e79ac2c37e",
+      "name" : "Request",
+      "source" : "210f10e79ac2c37e.html",
+      "type" : "text/html",
+      "size" : 775
+    }, {
+      "uid" : "8485500f1ddbd512",
+      "name" : "Request",
+      "source" : "8485500f1ddbd512.html",
+      "type" : "text/html",
+      "size" : 775
+    }, {
+      "uid" : "ae7d7426d7439067",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "ae7d7426d7439067.html",
+      "type" : "text/html",
+      "size" : 1312
+    }, {
+      "uid" : "8a296176cc6e0bfb",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "8a296176cc6e0bfb.html",
+      "type" : "text/html",
+      "size" : 1312
+    }, {
+      "uid" : "1d4a386adba8f8d8",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "1d4a386adba8f8d8.html",
+      "type" : "text/html",
+      "size" : 1312
+    }, {
+      "uid" : "7eccb36c2b4f7d91",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "7eccb36c2b4f7d91.html",
+      "type" : "text/html",
+      "size" : 1312
+    }, {
+      "uid" : "1dbf6626aa94470c",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "1dbf6626aa94470c.html",
+      "type" : "text/html",
+      "size" : 1312
+    }, {
+      "uid" : "224922371676a711",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "224922371676a711.html",
+      "type" : "text/html",
+      "size" : 1312
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 24,
+    "stepsCount" : 1,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests.user"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.user.CreateUserTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "createUserTest"
+  }, {
+    "name" : "suite",
+    "value" : "tests.user.CreateUserTest"
+  }, {
+    "name" : "host",
+    "value" : "SUVOROV-LAPTOP"
+  }, {
+    "name" : "thread",
+    "value" : "17980@SUVOROV-LAPTOP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "17050d03b0baae53.json",
+  "parameterValues" : [ ]
+}

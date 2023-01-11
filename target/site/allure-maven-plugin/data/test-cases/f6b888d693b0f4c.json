@@ -1,0 +1,321 @@
+{
+  "uid" : "f6b888d693b0f4c",
+  "name" : "Авторизация пользователя.",
+  "fullName" : "tests.user.LoginUserTest.authorizationTest",
+  "historyId" : "c4b7c058297c40694c5fb16801b927d0",
+  "time" : {
+    "start" : 1673465457053,
+    "stop" : 1673465458195,
+    "duration" : 1142
+  },
+  "description" : "Авторизация пользователя с зарегистрированными случайными данными. Проверка успешного ответа сервера.",
+  "descriptionHtml" : "<p>Авторизация пользователя с зарегистрированными случайными данными. Проверка успешного ответа сервера.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Авторизация пользователя с зарегистрированными случайными данными. Проверка успешного ответа сервера.",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя. POST запрос на ручку /api/auth/register.",
+      "time" : {
+        "start" : 1673465457053,
+        "stop" : 1673465457480,
+        "duration" : 427
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f83d6fa65d4dbc4b",
+        "name" : "Request",
+        "source" : "f83d6fa65d4dbc4b.html",
+        "type" : "text/html",
+        "size" : 781
+      }, {
+        "uid" : "a5603192e38ef6d0",
+        "name" : "Request",
+        "source" : "a5603192e38ef6d0.html",
+        "type" : "text/html",
+        "size" : 781
+      }, {
+        "uid" : "b286f2250143654c",
+        "name" : "Request",
+        "source" : "b286f2250143654c.html",
+        "type" : "text/html",
+        "size" : 781
+      }, {
+        "uid" : "420ef88894c13905",
+        "name" : "Request",
+        "source" : "420ef88894c13905.html",
+        "type" : "text/html",
+        "size" : 781
+      }, {
+        "uid" : "8771384addc9a123",
+        "name" : "Request",
+        "source" : "8771384addc9a123.html",
+        "type" : "text/html",
+        "size" : 781
+      }, {
+        "uid" : "32110c8cd8ee12ee",
+        "name" : "Request",
+        "source" : "32110c8cd8ee12ee.html",
+        "type" : "text/html",
+        "size" : 781
+      }, {
+        "uid" : "d2cd11d79093be41",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "d2cd11d79093be41.html",
+        "type" : "text/html",
+        "size" : 2001
+      }, {
+        "uid" : "cb039568de14190f",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "cb039568de14190f.html",
+        "type" : "text/html",
+        "size" : 2001
+      }, {
+        "uid" : "5fecc9e83f666a8d",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "5fecc9e83f666a8d.html",
+        "type" : "text/html",
+        "size" : 2001
+      }, {
+        "uid" : "6d48bf1eab25b956",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "6d48bf1eab25b956.html",
+        "type" : "text/html",
+        "size" : 2001
+      }, {
+        "uid" : "78fc4464fc072e27",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "78fc4464fc072e27.html",
+        "type" : "text/html",
+        "size" : 2001
+      }, {
+        "uid" : "c2ea47525be5be25",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "c2ea47525be5be25.html",
+        "type" : "text/html",
+        "size" : 2001
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@6aef91e6"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 12,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "Авторизация пользователя. POST запрос на ручку /api/auth/login.",
+      "time" : {
+        "start" : 1673465457480,
+        "stop" : 1673465457854,
+        "duration" : 374
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "df1c46cf86327032",
+        "name" : "Request",
+        "source" : "df1c46cf86327032.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "6ad5e0cb0f7e07d9",
+        "name" : "Request",
+        "source" : "6ad5e0cb0f7e07d9.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "40179bb7c0bbfb58",
+        "name" : "Request",
+        "source" : "40179bb7c0bbfb58.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "85e1862f99fa0a19",
+        "name" : "Request",
+        "source" : "85e1862f99fa0a19.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "99d406e75a7addf2",
+        "name" : "Request",
+        "source" : "99d406e75a7addf2.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "81db074f9acd5891",
+        "name" : "Request",
+        "source" : "81db074f9acd5891.html",
+        "type" : "text/html",
+        "size" : 775
+      }, {
+        "uid" : "119df06daf84453c",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "119df06daf84453c.html",
+        "type" : "text/html",
+        "size" : 1788
+      }, {
+        "uid" : "5b568717a57bb9f2",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "5b568717a57bb9f2.html",
+        "type" : "text/html",
+        "size" : 1788
+      }, {
+        "uid" : "834365b188ed45b8",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "834365b188ed45b8.html",
+        "type" : "text/html",
+        "size" : 1788
+      }, {
+        "uid" : "9069ad3c2c1f734b",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "9069ad3c2c1f734b.html",
+        "type" : "text/html",
+        "size" : 1788
+      }, {
+        "uid" : "6853b6940e4e5104",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "6853b6940e4e5104.html",
+        "type" : "text/html",
+        "size" : 1788
+      }, {
+        "uid" : "a1c561ce07d44b57",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "a1c561ce07d44b57.html",
+        "type" : "text/html",
+        "size" : 1788
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@6aef91e6"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 12,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "69956909dda21e47",
+      "name" : "Request",
+      "source" : "69956909dda21e47.html",
+      "type" : "text/html",
+      "size" : 777
+    }, {
+      "uid" : "2b3ac438c4ba594c",
+      "name" : "Request",
+      "source" : "2b3ac438c4ba594c.html",
+      "type" : "text/html",
+      "size" : 777
+    }, {
+      "uid" : "48b3b1179cdd9571",
+      "name" : "Request",
+      "source" : "48b3b1179cdd9571.html",
+      "type" : "text/html",
+      "size" : 777
+    }, {
+      "uid" : "211320bc670b4609",
+      "name" : "Request",
+      "source" : "211320bc670b4609.html",
+      "type" : "text/html",
+      "size" : 777
+    }, {
+      "uid" : "41dcff698868fa19",
+      "name" : "Request",
+      "source" : "41dcff698868fa19.html",
+      "type" : "text/html",
+      "size" : 777
+    }, {
+      "uid" : "b073c1fd6b4a0399",
+      "name" : "Request",
+      "source" : "b073c1fd6b4a0399.html",
+      "type" : "text/html",
+      "size" : 777
+    }, {
+      "uid" : "ec9f5d71835335c1",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "ec9f5d71835335c1.html",
+      "type" : "text/html",
+      "size" : 1302
+    }, {
+      "uid" : "5557b42f226e375d",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "5557b42f226e375d.html",
+      "type" : "text/html",
+      "size" : 1302
+    }, {
+      "uid" : "2e5ad91cf00471b8",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "2e5ad91cf00471b8.html",
+      "type" : "text/html",
+      "size" : 1302
+    }, {
+      "uid" : "9d9079b6f82a7402",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "9d9079b6f82a7402.html",
+      "type" : "text/html",
+      "size" : 1302
+    }, {
+      "uid" : "535ea58437dedce7",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "535ea58437dedce7.html",
+      "type" : "text/html",
+      "size" : 1302
+    }, {
+      "uid" : "73a638396f986e5b",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "73a638396f986e5b.html",
+      "type" : "text/html",
+      "size" : 1302
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 36,
+    "stepsCount" : 2,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests.user"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.user.LoginUserTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "authorizationTest"
+  }, {
+    "name" : "suite",
+    "value" : "tests.user.LoginUserTest"
+  }, {
+    "name" : "host",
+    "value" : "SUVOROV-LAPTOP"
+  }, {
+    "name" : "thread",
+    "value" : "17980@SUVOROV-LAPTOP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f6b888d693b0f4c.json",
+  "parameterValues" : [ ]
+}

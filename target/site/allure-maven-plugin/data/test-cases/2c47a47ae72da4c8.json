@@ -1,0 +1,339 @@
+{
+  "uid" : "2c47a47ae72da4c8",
+  "name" : "Авторизация пользователя с неверным E-mail(ом).",
+  "fullName" : "tests.user.LoginUserTest.authorizationWithWrongEmailTest",
+  "historyId" : "56fe44f8b524cd2a9148a4e5b203428d",
+  "time" : {
+    "start" : 1673465456010,
+    "stop" : 1673465457050,
+    "duration" : 1040
+  },
+  "description" : "Авторизация пользователя с невалидными E-mail(ом) и с валидными случайными паролем и именем. Проверка неуспешного ответа сервера.",
+  "descriptionHtml" : "<p>Авторизация пользователя с невалидными E-mail(ом) и с валидными случайными паролем и именем. Проверка неуспешного ответа сервера.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Авторизация пользователя с невалидными E-mail(ом) и с валидными случайными паролем и именем. Проверка неуспешного ответа сервера.",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя. POST запрос на ручку /api/auth/register.",
+      "time" : {
+        "start" : 1673465456010,
+        "stop" : 1673465456441,
+        "duration" : 431
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "619a9a601c72c181",
+        "name" : "Request",
+        "source" : "619a9a601c72c181.html",
+        "type" : "text/html",
+        "size" : 783
+      }, {
+        "uid" : "be99884b08e31b36",
+        "name" : "Request",
+        "source" : "be99884b08e31b36.html",
+        "type" : "text/html",
+        "size" : 783
+      }, {
+        "uid" : "407f80ad19d6f99a",
+        "name" : "Request",
+        "source" : "407f80ad19d6f99a.html",
+        "type" : "text/html",
+        "size" : 783
+      }, {
+        "uid" : "31721268863bbb64",
+        "name" : "Request",
+        "source" : "31721268863bbb64.html",
+        "type" : "text/html",
+        "size" : 783
+      }, {
+        "uid" : "15bd477afa95edcd",
+        "name" : "Request",
+        "source" : "15bd477afa95edcd.html",
+        "type" : "text/html",
+        "size" : 783
+      }, {
+        "uid" : "e8268781245e647",
+        "name" : "Request",
+        "source" : "e8268781245e647.html",
+        "type" : "text/html",
+        "size" : 783
+      }, {
+        "uid" : "619b00a83e8adfe2",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "619b00a83e8adfe2.html",
+        "type" : "text/html",
+        "size" : 2000
+      }, {
+        "uid" : "81a2989c694266bc",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "81a2989c694266bc.html",
+        "type" : "text/html",
+        "size" : 2000
+      }, {
+        "uid" : "b4e3ac94fa84ad33",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "b4e3ac94fa84ad33.html",
+        "type" : "text/html",
+        "size" : 2000
+      }, {
+        "uid" : "323f4f72e14bede9",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "323f4f72e14bede9.html",
+        "type" : "text/html",
+        "size" : 2000
+      }, {
+        "uid" : "87bb22d588c5d8c",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "87bb22d588c5d8c.html",
+        "type" : "text/html",
+        "size" : 2000
+      }, {
+        "uid" : "408bb4a93a47c593",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "408bb4a93a47c593.html",
+        "type" : "text/html",
+        "size" : 2000
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@14aa12c5"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 12,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "Авторизация пользователя. POST запрос на ручку /api/auth/login.",
+      "time" : {
+        "start" : 1673465456441,
+        "stop" : 1673465456716,
+        "duration" : 275
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "cd457ed1033021f7",
+        "name" : "Request",
+        "source" : "cd457ed1033021f7.html",
+        "type" : "text/html",
+        "size" : 785
+      }, {
+        "uid" : "e6f9ba5f7ef0616f",
+        "name" : "Request",
+        "source" : "e6f9ba5f7ef0616f.html",
+        "type" : "text/html",
+        "size" : 785
+      }, {
+        "uid" : "807f69bf6cea8fbb",
+        "name" : "Request",
+        "source" : "807f69bf6cea8fbb.html",
+        "type" : "text/html",
+        "size" : 785
+      }, {
+        "uid" : "6254b4a0535c769a",
+        "name" : "Request",
+        "source" : "6254b4a0535c769a.html",
+        "type" : "text/html",
+        "size" : 785
+      }, {
+        "uid" : "96af0493853d5854",
+        "name" : "Request",
+        "source" : "96af0493853d5854.html",
+        "type" : "text/html",
+        "size" : 785
+      }, {
+        "uid" : "ecd53764bbb9d32b",
+        "name" : "Request",
+        "source" : "ecd53764bbb9d32b.html",
+        "type" : "text/html",
+        "size" : 785
+      }, {
+        "uid" : "8f0a9e64b604a7bf",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "8f0a9e64b604a7bf.html",
+        "type" : "text/html",
+        "size" : 1307
+      }, {
+        "uid" : "1e469a9bc838c0a5",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "1e469a9bc838c0a5.html",
+        "type" : "text/html",
+        "size" : 1307
+      }, {
+        "uid" : "1ef479a0b3e08314",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "1ef479a0b3e08314.html",
+        "type" : "text/html",
+        "size" : 1307
+      }, {
+        "uid" : "cee6ae9449e7484b",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "cee6ae9449e7484b.html",
+        "type" : "text/html",
+        "size" : 1307
+      }, {
+        "uid" : "146720e1d001c127",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "146720e1d001c127.html",
+        "type" : "text/html",
+        "size" : 1307
+      }, {
+        "uid" : "824971df4b5949d2",
+        "name" : "HTTP/1.1 200 OK",
+        "source" : "824971df4b5949d2.html",
+        "type" : "text/html",
+        "size" : 1307
+      } ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "api.model.User@6a670dcc"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 12,
+      "stepsCount" : 0,
+      "hasContent" : true
+    }, {
+      "name" : "Неуспешный ответ сервера на попытку авторизации пользователя.",
+      "time" : {
+        "start" : 1673465456716,
+        "stop" : 1673465456735,
+        "duration" : 19
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@223459f"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "afd5627f8adb7e57",
+      "name" : "Request",
+      "source" : "afd5627f8adb7e57.html",
+      "type" : "text/html",
+      "size" : 779
+    }, {
+      "uid" : "d78d82aa25d78ba0",
+      "name" : "Request",
+      "source" : "d78d82aa25d78ba0.html",
+      "type" : "text/html",
+      "size" : 779
+    }, {
+      "uid" : "f0719a7da9919795",
+      "name" : "Request",
+      "source" : "f0719a7da9919795.html",
+      "type" : "text/html",
+      "size" : 779
+    }, {
+      "uid" : "10c8bbd2e54e7122",
+      "name" : "Request",
+      "source" : "10c8bbd2e54e7122.html",
+      "type" : "text/html",
+      "size" : 779
+    }, {
+      "uid" : "9dd00a0039e00b16",
+      "name" : "Request",
+      "source" : "9dd00a0039e00b16.html",
+      "type" : "text/html",
+      "size" : 779
+    }, {
+      "uid" : "ab493874e526dc89",
+      "name" : "Request",
+      "source" : "ab493874e526dc89.html",
+      "type" : "text/html",
+      "size" : 779
+    }, {
+      "uid" : "4584eb1fa19fcc41",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "4584eb1fa19fcc41.html",
+      "type" : "text/html",
+      "size" : 1310
+    }, {
+      "uid" : "bf506173cfcc3050",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "bf506173cfcc3050.html",
+      "type" : "text/html",
+      "size" : 1310
+    }, {
+      "uid" : "3e065ff3cd42a02e",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "3e065ff3cd42a02e.html",
+      "type" : "text/html",
+      "size" : 1310
+    }, {
+      "uid" : "154d21676a21a12c",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "154d21676a21a12c.html",
+      "type" : "text/html",
+      "size" : 1310
+    }, {
+      "uid" : "c5167e482a624353",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "c5167e482a624353.html",
+      "type" : "text/html",
+      "size" : 1310
+    }, {
+      "uid" : "b52502c3170d50ad",
+      "name" : "HTTP/1.1 200 OK",
+      "source" : "b52502c3170d50ad.html",
+      "type" : "text/html",
+      "size" : 1310
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 36,
+    "stepsCount" : 3,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests.user"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.user.LoginUserTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "authorizationWithWrongEmailTest"
+  }, {
+    "name" : "suite",
+    "value" : "tests.user.LoginUserTest"
+  }, {
+    "name" : "host",
+    "value" : "SUVOROV-LAPTOP"
+  }, {
+    "name" : "thread",
+    "value" : "17980@SUVOROV-LAPTOP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2c47a47ae72da4c8.json",
+  "parameterValues" : [ ]
+}
