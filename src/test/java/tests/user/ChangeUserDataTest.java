@@ -3,151 +3,123 @@ package tests.user;
 import api.model.User;
 import api.steps.UserSteps;
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static io.restassured.RestAssured.given;
+
 public class ChangeUserDataTest {
 
-    private final static String OLD_NAME = "Username";
-    private final static String OLD_EMAIL = "test-data@yandex.ru";
-    private final static String OLD_PASSWORD = "password";
+    private String name;
+    private String email;
+    private String password;
+    private UserSteps userSteps;
+    private User user;
+    private String accessToken;
+
 
     @Before
-    public void setUp(){
+    public void setUp() {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+        name = RandomStringUtils.randomAlphanumeric(4, 20);
+        email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
+        password = RandomStringUtils.randomAlphanumeric(10, 20);
+        userSteps = new UserSteps();
+        user = new User(name, email, password);
+        Response resp = userSteps.sendPostRequestApiAuthRegister(user);
+        accessToken = JsonPath.from(resp.getBody().asString()).get("accessToken");
     }
 
+
     @Test
-    public void changeUserNameWithAuthorizationTest(){
+    public void changeUserNameWithAuthorizationTest() {
         String newName = "Tatyana";
-        UserSteps userSteps = new UserSteps();
-        User user = new User(OLD_EMAIL, OLD_PASSWORD);
-        String accessToken = userSteps.getAccessTokenForChangeUserData(user);
         User changeUser = new User();
         changeUser.setName(newName);
+        user.setName(newName);
         Response response = userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
-        userSteps.checkSuccessResponseApiAuthUser(response, OLD_EMAIL, newName);
-
-        //возврат к изначальному значению имени пользователя
-        changeUser.setName(OLD_NAME);
-        userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
+        userSteps.checkSuccessResponseApiAuthUser(response, email, newName);
     }
 
+
     @Test
-    public void changeUserEmailWithAuthorizationTest(){
-        String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
-        UserSteps userSteps = new UserSteps();
-        User user = new User(OLD_EMAIL, OLD_PASSWORD);
-        String accessToken = userSteps.getAccessTokenForChangeUserData(user);
+    public void changeUserEmailWithAuthorizationTest() {
+        String newEmail = "123" + email;
         User changeUser = new User();
         changeUser.setEmail(newEmail);
+        user.setEmail(newEmail);
         Response response = userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
-        userSteps.checkSuccessResponseApiAuthUser(response, newEmail, OLD_NAME);
-
-        //возврат к изначальному значению почты пользователя
-        changeUser.setEmail(OLD_EMAIL);
-        userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
+        userSteps.checkSuccessResponseApiAuthUser(response, newEmail, name);
     }
 
     @Test
-    public void changeUserPasswordWithAuthorizationTest(){
+    public void changeUserPasswordWithAuthorizationTest() {
         String newPassword = "diplomNa100ballov";
-        UserSteps userSteps = new UserSteps();
-        User user = new User(OLD_EMAIL, OLD_PASSWORD);
-        String accessToken = userSteps.getAccessTokenForChangeUserData(user);
         User changeUser = new User();
         changeUser.setPassword(newPassword);
+        user.setPassword(newPassword);
         Response response = userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
-        userSteps.checkSuccessResponseApiAuthUser(response, OLD_EMAIL, OLD_NAME);
-
-        //возврат к изначальному значению пароля пользователя
-        changeUser.setPassword(OLD_PASSWORD);
-        userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
+        userSteps.checkSuccessResponseApiAuthUser(response, email, name);
     }
 
     @Test
-    public void changeUserNameAndEmailWithAuthorizationTest(){
-        String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
+    public void changeUserNameAndEmailWithAuthorizationTest() {
+        String newEmail = "234" + email;
         String newName = "TatyanaSergeevna";
-        UserSteps userSteps = new UserSteps();
-        User user = new User(OLD_EMAIL, OLD_PASSWORD);
-        String accessToken = userSteps.getAccessTokenForChangeUserData(user);
         User changeUser = new User();
         changeUser.setEmail(newEmail);
         changeUser.setName(newName);
+        user.setEmail(newEmail);
+        user.setName(newName);
         Response response = userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
         userSteps.checkSuccessResponseApiAuthUser(response, newEmail, newName);
-
-        //возврат к изначальному значению почты и имени пользователя
-        changeUser.setEmail(OLD_EMAIL);
-        changeUser.setName(OLD_NAME);
-        userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
     }
 
     @Test
-    public void changeUserNameAndPasswordWithAuthorizationTest(){
+    public void changeUserNameAndPasswordWithAuthorizationTest() {
         String newPassword = "HappyNewYear!!!AMneSdachiDiploma";
         String newName = "TatyanaSergeevna";
-        UserSteps userSteps = new UserSteps();
-        User user = new User(OLD_EMAIL, OLD_PASSWORD);
-        String accessToken = userSteps.getAccessTokenForChangeUserData(user);
         User changeUser = new User();
         changeUser.setPassword(newPassword);
         changeUser.setName(newName);
+        user.setPassword(newPassword);
+        user.setName(newName);
         Response response = userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
-        userSteps.checkSuccessResponseApiAuthUser(response, OLD_EMAIL, newName);
-
-        //возврат к изначальному значению пароля и имени пользователя
-        changeUser.setPassword(OLD_PASSWORD);
-        changeUser.setName(OLD_NAME);
-        userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
+        userSteps.checkSuccessResponseApiAuthUser(response, email, newName);
     }
 
     @Test
-    public void changeUserEmailAndPasswordWithAuthorizationTest(){
+    public void changeUserEmailAndPasswordWithAuthorizationTest() {
         String newPassword = "YaObyazatel'noSpravlus'!";
-        String newEmail = "vsemLucheiDobra@yandex.ru";
-        UserSteps userSteps = new UserSteps();
-        User user = new User(OLD_EMAIL, OLD_PASSWORD);
-        String accessToken = userSteps.getAccessTokenForChangeUserData(user);
+        String newEmail = "567" + email;
         User changeUser = new User();
         changeUser.setPassword(newPassword);
         changeUser.setEmail(newEmail);
+        user.setPassword(newPassword);
+        user.setEmail(newEmail);
         Response response = userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
-        userSteps.checkSuccessResponseApiAuthUser(response, newEmail, OLD_NAME);
-
-        //возврат к изначальному значению пароля и почты пользователя
-        changeUser.setPassword(OLD_PASSWORD);
-        changeUser.setEmail(OLD_EMAIL);
-        userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
+        userSteps.checkSuccessResponseApiAuthUser(response, newEmail, name);
     }
 
     @Test
-    public void changeAllUserFieldsWithAuthorizationTest(){
+    public void changeAllUserFieldsWithAuthorizationTest() {
         String newPassword = "Zdorov'yaSamoeGlavnoe";
         String newName = "ManaskinaTatyanaSergeevna";
-        String newEmail = "GlavnoePotomNaityRabotu@yandex.ru";
-        UserSteps userSteps = new UserSteps();
-        User user = new User(OLD_EMAIL, OLD_PASSWORD);
-        String accessToken = userSteps.getAccessTokenForChangeUserData(user);
+        String newEmail = "acb" + email;
         User changeUser = new User(newName, newEmail, newPassword);
+        user = changeUser;
         Response response = userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
         userSteps.checkSuccessResponseApiAuthUser(response, newEmail, newName);
-
-        //возврат к изначальному значению почты, пароля и имени пользователя
-        changeUser.setEmail(OLD_EMAIL);
-        changeUser.setName(OLD_NAME);
-        changeUser.setPassword(OLD_PASSWORD);
-        userSteps.sendPatchRequestWithAuthorizationApiAuthUser(changeUser, accessToken);
     }
 
 
-
     @Test
-    public void changeUserNameWithoutAuthorizationTest(){
+    public void changeUserNameWithoutAuthorizationTest() {
         String newName = "Tatyana";
-        UserSteps userSteps = new UserSteps();
         User changeUser = new User();
         changeUser.setName(newName);
         Response response = userSteps.sendPatchRequestWithoutAuthorizationApiAuthUser(changeUser);
@@ -155,9 +127,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
-    public void changeUserEmailWithoutAuthorizationTest(){
+    public void changeUserEmailWithoutAuthorizationTest() {
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
-        UserSteps userSteps = new UserSteps();
         User changeUser = new User();
         changeUser.setName(newEmail);
         Response response = userSteps.sendPatchRequestWithoutAuthorizationApiAuthUser(changeUser);
@@ -165,9 +136,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
-    public void changeUserPasswordWithoutAuthorizationTest(){
+    public void changeUserPasswordWithoutAuthorizationTest() {
         String newPassword = "diplomNa100ballov";
-        UserSteps userSteps = new UserSteps();
         User changeUser = new User();
         changeUser.setName(newPassword);
         Response response = userSteps.sendPatchRequestWithoutAuthorizationApiAuthUser(changeUser);
@@ -175,10 +145,9 @@ public class ChangeUserDataTest {
     }
 
     @Test
-    public void changeUserNameAndEmailWithoutAuthorizationTest(){
+    public void changeUserNameAndEmailWithoutAuthorizationTest() {
         String newName = "TatyanaSergeevna";
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
-        UserSteps userSteps = new UserSteps();
         User changeUser = new User();
         changeUser.setName(newName);
         changeUser.setEmail(newEmail);
@@ -187,10 +156,9 @@ public class ChangeUserDataTest {
     }
 
     @Test
-    public void changeUserNameAndPasswordWithoutAuthorizationTest(){
+    public void changeUserNameAndPasswordWithoutAuthorizationTest() {
         String newPassword = "diplomNa100ballov";
         String newName = "TatyanaSergeevna";
-        UserSteps userSteps = new UserSteps();
         User changeUser = new User();
         changeUser.setName(newPassword);
         changeUser.setName(newName);
@@ -199,10 +167,9 @@ public class ChangeUserDataTest {
     }
 
     @Test
-    public void changeUserEmailAndPasswordWithoutAuthorizationTest(){
+    public void changeUserEmailAndPasswordWithoutAuthorizationTest() {
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
         String newPassword = "diplomNa100ballov";
-        UserSteps userSteps = new UserSteps();
         User changeUser = new User();
         changeUser.setName(newEmail);
         changeUser.setPassword(newPassword);
@@ -211,11 +178,10 @@ public class ChangeUserDataTest {
     }
 
     @Test
-    public void changeAllUserFieldsWithoutAuthorizationTest(){
+    public void changeAllUserFieldsWithoutAuthorizationTest() {
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
         String newPassword = "diplomNa100ballov";
         String newName = "TatyanaSergeevna";
-        UserSteps userSteps = new UserSteps();
         User changeUser = new User();
         changeUser.setName(newEmail);
         changeUser.setPassword(newPassword);
@@ -223,5 +189,14 @@ public class ChangeUserDataTest {
         Response response = userSteps.sendPatchRequestWithoutAuthorizationApiAuthUser(changeUser);
         userSteps.checkFailedResponseApiAuthUser(response);
     }
+
+    @After
+    public void deleteRandomUser() {
+        given().log().all()
+                .header("Content-Type", "application/json")
+                .body(user)
+                .delete("/api/auth/user");
+    }
+
 
 }

@@ -3,27 +3,39 @@ package tests.user;
 import api.model.User;
 import api.steps.UserSteps;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.Matchers;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import io.restassured.response.Response;
 
 import java.util.Locale;
 
+import static io.restassured.RestAssured.given;
+
 public class CreateUserTest {
 
+    private String name;
+    private String email;
+    private String password;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
     }
 
+    @Before
+    public void createRandomData() {
+        name = RandomStringUtils.randomAlphanumeric(4, 20);
+        email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
+        password = RandomStringUtils.randomAlphanumeric(10, 20);
+    }
+
+
     @Test
-    public void createUserTest(){
+    public void createUserTest() {
         UserSteps userSteps = new UserSteps();
-        String name = RandomStringUtils.randomAlphanumeric(4,20);
-        String email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
-        String password = RandomStringUtils.randomAlphanumeric(10, 20);
         User user = new User(name, email, password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         response.then().log().all()
@@ -37,11 +49,8 @@ public class CreateUserTest {
 
 
     @Test
-    public void createTwoIdenticalUsersTest(){
+    public void createTwoIdenticalUsersTest() {
         UserSteps userSteps = new UserSteps();
-        String name = RandomStringUtils.randomAlphanumeric(4,20);
-        String email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
-        String password = RandomStringUtils.randomAlphanumeric(10, 20);
         User user = new User(name, email, password);
         userSteps.sendPostRequestApiAuthRegister(user);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
@@ -52,10 +61,8 @@ public class CreateUserTest {
     }
 
     @Test
-    public void createUserWithoutNameTest(){
+    public void createUserWithoutNameTest() {
         UserSteps userSteps = new UserSteps();
-        String email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
-        String password = RandomStringUtils.randomAlphanumeric(10, 20);
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
@@ -64,10 +71,8 @@ public class CreateUserTest {
     }
 
     @Test
-    public void createUserWithoutEmailTest(){
+    public void createUserWithoutEmailTest() {
         UserSteps userSteps = new UserSteps();
-        String name = RandomStringUtils.randomAlphanumeric(4, 20);
-        String password = RandomStringUtils.randomAlphanumeric(10, 20);
         User user = new User();
         user.setName(name);
         user.setPassword(password);
@@ -76,10 +81,8 @@ public class CreateUserTest {
     }
 
     @Test
-    public void createUserWithoutPasswordTest(){
+    public void createUserWithoutPasswordTest() {
         UserSteps userSteps = new UserSteps();
-        String email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
-        String name = RandomStringUtils.randomAlphanumeric(4, 20);
         User user = new User();
         user.setEmail(email);
         user.setName(name);
@@ -88,9 +91,8 @@ public class CreateUserTest {
     }
 
     @Test
-    public void createUserWithoutNameAndEmailTest(){
+    public void createUserWithoutNameAndEmailTest() {
         UserSteps userSteps = new UserSteps();
-        String password = RandomStringUtils.randomAlphanumeric(10, 20);
         User user = new User();
         user.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
@@ -98,9 +100,8 @@ public class CreateUserTest {
     }
 
     @Test
-    public void createUserWithoutNameAndPassword(){
+    public void createUserWithoutNameAndPasswordTest() {
         UserSteps userSteps = new UserSteps();
-        String email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
         User user = new User();
         user.setEmail(email);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
@@ -108,12 +109,26 @@ public class CreateUserTest {
     }
 
     @Test
-    public void createUserWithoutEmailAndPassword(){
+    public void createUserWithoutEmailAndPasswordTest() {
         UserSteps userSteps = new UserSteps();
-        String name = RandomStringUtils.randomAlphanumeric(4, 20);
         User user = new User();
         user.setName(name);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         userSteps.checkFailedResponseApiAuthRegister(response);
+    }
+
+    @Test
+    public void createUserWithoutAllTest() {
+        UserSteps userSteps = new UserSteps();
+        Response response = userSteps.sendPostRequestApiAuthRegister(new User());
+        userSteps.checkFailedResponseApiAuthRegister(response);
+    }
+
+    @After
+    public void deleteRandomUser() {
+        given().log().all()
+                .header("Content-Type", "application/json")
+                .body(new User(name, email, password))
+                .delete("/api/auth/user");
     }
 }

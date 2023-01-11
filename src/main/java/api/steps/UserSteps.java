@@ -2,7 +2,6 @@ package api.steps;
 
 import api.model.User;
 import io.qameta.allure.Step;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 
@@ -17,7 +16,8 @@ public class UserSteps {
     private final static String ERROR_MESSAGE_TEXT_USER = "You should be authorised";
 
     @Step
-    public Response sendPostRequestApiAuthRegister(User user){
+    //регистрация
+    public Response sendPostRequestApiAuthRegister(User user) {
         return given().log().all()
                 .header("Content-type", "application/json")
                 .body(user)
@@ -26,7 +26,8 @@ public class UserSteps {
     }
 
     @Step
-    public void checkFailedResponseApiAuthRegister(Response response){
+    //не получилось зарегистрироваться
+    public void checkFailedResponseApiAuthRegister(Response response) {
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(false))
                 .and().body("message", Matchers.is(ERROR_MESSAGE_TEXT_REGISTER))
@@ -35,6 +36,7 @@ public class UserSteps {
 
 
     @Step
+    //Авторизация
     public Response sendPostRequestApiAuthLogin(User user) {
         return given()
                 .log()
@@ -46,20 +48,17 @@ public class UserSteps {
     }
 
     @Step
-    public void checkFailedResponseApiAuthLogin(Response response){
-         response.then().log().all()
+    //не получилось авторизоваться
+    public void checkFailedResponseApiAuthLogin(Response response) {
+        response.then().log().all()
                 .assertThat().body("success", Matchers.is(false))
                 .and().body("message", Matchers.is(ERROR_MESSAGE_TEXT_LOGIN))
                 .and().statusCode(401);
     }
 
     @Step
-    public String getAccessTokenForChangeUserData(User user){
-        return JsonPath.from(sendPostRequestApiAuthLogin(user).getBody().asString()).get("accessToken");
-    }
-
-    @Step
-    public Response sendPatchRequestWithAuthorizationApiAuthUser(User user, String token){
+    //изменить данные пользователя с авторизацией
+    public Response sendPatchRequestWithAuthorizationApiAuthUser(User user, String token) {
         return given()
                 .log()
                 .all()
@@ -69,8 +68,10 @@ public class UserSteps {
                 .when()
                 .patch("/api/auth/user");
     }
+
     @Step
-    public Response sendPatchRequestWithoutAuthorizationApiAuthUser(User user){
+    //изменить данные пользователя без авторизации
+    public Response sendPatchRequestWithoutAuthorizationApiAuthUser(User user) {
         return given()
                 .log()
                 .all()
@@ -81,7 +82,8 @@ public class UserSteps {
     }
 
     @Step
-    public void checkSuccessResponseApiAuthUser(Response response, String email, String name){
+    //удачно изменили данные пользователя
+    public void checkSuccessResponseApiAuthUser(Response response, String email, String name) {
         response.then().log().all()
                 .assertThat()
                 .body("success", Matchers.is(true))
@@ -91,7 +93,8 @@ public class UserSteps {
     }
 
     @Step
-    public void checkFailedResponseApiAuthUser(Response response){
+    //неудачно изменили данные пользователя
+    public void checkFailedResponseApiAuthUser(Response response) {
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(false))
                 .and().body("message", Matchers.is(ERROR_MESSAGE_TEXT_USER))

@@ -4,79 +4,91 @@ import api.model.User;
 import api.steps.UserSteps;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.Matchers;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Locale;
 
+import static io.restassured.RestAssured.given;
+
 public class LoginUserTest {
 
-    private final static String EMAIL = "test-data@yandex.ru";
-    private final static String PASSWORD = "password";
-    private final static String NAME = "Username";
+    private String email;
+    private String password;
+    private String name;
+    private UserSteps userSteps;
+    private User user;
+    private User authUser;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+        name = RandomStringUtils.randomAlphanumeric(4, 20);
+        email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
+        password = RandomStringUtils.randomAlphanumeric(10, 20);
+        userSteps = new UserSteps();
+        user = new User(name, email, password);
+        authUser = new User();
+        userSteps.sendPostRequestApiAuthRegister(user);
     }
 
     @Test
-    public void authorizationTest(){
-        UserSteps userSteps = new UserSteps();
-        User user = new User(EMAIL,PASSWORD);
+    public void authorizationTest() {
         Response response = userSteps.sendPostRequestApiAuthLogin(user);
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(true))
                 .and().body("accessToken", Matchers.notNullValue())
                 .and().body("refreshToken", Matchers.notNullValue())
                 .and().body("user.email", Matchers.is(user.getEmail().toLowerCase(Locale.ROOT)))
-                .and().body("user.name", Matchers.is(NAME))
+                .and().body("user.name", Matchers.is(name))
                 .and().statusCode(200);
     }
 
     @Test
-    public void authorizationWithoutEmailTest(){
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
-        user.setPassword(PASSWORD);
-        Response response = userSteps.sendPostRequestApiAuthLogin(user);
+    public void authorizationWithoutEmailTest() {
+        authUser.setPassword(password);
+        Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
         userSteps.checkFailedResponseApiAuthLogin(response);
 
     }
 
     @Test
-    public void authorizationWithoutPasswordTest(){
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
-        user.setEmail(EMAIL);
-        Response response = userSteps.sendPostRequestApiAuthLogin(user);
+    public void authorizationWithoutPasswordTest() {
+        authUser.setEmail(email);
+        Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
         userSteps.checkFailedResponseApiAuthLogin(response);
     }
 
     @Test
-    public void authorizationWithoutEmailAndPasswordTest(){
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
-        Response response = userSteps.sendPostRequestApiAuthLogin(user);
+    public void authorizationWithoutEmailAndPasswordTest() {
+        Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
         userSteps.checkFailedResponseApiAuthLogin(response);
     }
 
     @Test
-    public void authorizationWithWrongEmailTest(){
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
-        user.setEmail("test-datashechka@yandex.ru");
-        Response response = userSteps.sendPostRequestApiAuthLogin(user);
+    public void authorizationWithWrongEmailTest() {
+        authUser = new User(name, email, password);
+        authUser.setEmail("haha" + email);
+        Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
         userSteps.checkFailedResponseApiAuthLogin(response);
     }
 
     @Test
-    public void authorizationWithWrongPasswordTest(){
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
-        user.setPassword("lalalatopola");
-        Response response = userSteps.sendPostRequestApiAuthLogin(user);
+    public void authorizationWithWrongPasswordTest() {
+        authUser = new User(name, email, password);
+        authUser.setPassword(password + "8765");
+        Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
         userSteps.checkFailedResponseApiAuthLogin(response);
+    }
+
+    @After
+    public void deleteRandomUser() {
+        given().log().all()
+                .header("Content-Type", "application/json")
+                .body(new User(name, email, password))
+                .delete("/api/auth/user");
     }
 }
