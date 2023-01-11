@@ -2,6 +2,8 @@ package tests.user;
 
 import api.model.User;
 import api.steps.UserSteps;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -36,6 +38,8 @@ public class ChangeUserDataTest {
 
 
     @Test
+    @DisplayName("Изменение имени пользователя с авторизацией.")
+    @Description("Изменение имени пользователя с авторизацией. Проверка успешного ответа сервера.")
     public void changeUserNameWithAuthorizationTest() {
         String newName = "Tatyana";
         User changeUser = new User();
@@ -47,6 +51,8 @@ public class ChangeUserDataTest {
 
 
     @Test
+    @DisplayName("Изменение E-mail пользователя с авторизацией.")
+    @Description("Изменение E-mail пользователя с авторизацией. Проверка успешного ответа сервера.")
     public void changeUserEmailWithAuthorizationTest() {
         String newEmail = "123" + email;
         User changeUser = new User();
@@ -57,6 +63,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение пароля пользователя с авторизацией.")
+    @Description("Изменение пароля пользователя с авторизацией. Проверка успешного ответа сервера.")
     public void changeUserPasswordWithAuthorizationTest() {
         String newPassword = "diplomNa100ballov";
         User changeUser = new User();
@@ -67,6 +75,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение имени и E-mail пользователя с авторизацией.")
+    @Description("Изменение имени и E-mail пользователя с авторизацией. Проверка успешного ответа сервера.")
     public void changeUserNameAndEmailWithAuthorizationTest() {
         String newEmail = "234" + email;
         String newName = "TatyanaSergeevna";
@@ -80,6 +90,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение имени и пароля пользователя с авторизацией.")
+    @Description("Изменение имени и пароля пользователя с авторизацией. Проверка успешного ответа сервера.")
     public void changeUserNameAndPasswordWithAuthorizationTest() {
         String newPassword = "HappyNewYear!!!AMneSdachiDiploma";
         String newName = "TatyanaSergeevna";
@@ -93,6 +105,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение E-mail и пароля пользователя с авторизацией.")
+    @Description("Изменение E-mail и пароля пользователя с авторизацией. Проверка успешного ответа сервера.")
     public void changeUserEmailAndPasswordWithAuthorizationTest() {
         String newPassword = "YaObyazatel'noSpravlus'!";
         String newEmail = "567" + email;
@@ -106,6 +120,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение всех данных пользователя с авторизацией.")
+    @Description("Изменение всех данных пользователя с авторизацией. Проверка успешного ответа сервера.")
     public void changeAllUserFieldsWithAuthorizationTest() {
         String newPassword = "Zdorov'yaSamoeGlavnoe";
         String newName = "ManaskinaTatyanaSergeevna";
@@ -118,6 +134,8 @@ public class ChangeUserDataTest {
 
 
     @Test
+    @DisplayName("Изменение имени пользователя без авторизации.")
+    @Description("Изменение имени пользователя без авторизации. Проверка неуспешного ответа сервера.")
     public void changeUserNameWithoutAuthorizationTest() {
         String newName = "Tatyana";
         User changeUser = new User();
@@ -127,6 +145,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение E-mail пользователя без авторизации.")
+    @Description("Изменение E-mail пользователя без авторизации. Проверка неуспешного ответа сервера.")
     public void changeUserEmailWithoutAuthorizationTest() {
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
         User changeUser = new User();
@@ -136,6 +156,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение пароля пользователя без авторизации.")
+    @Description("Изменение пароля пользователя без авторизации. Проверка неуспешного ответа сервера.")
     public void changeUserPasswordWithoutAuthorizationTest() {
         String newPassword = "diplomNa100ballov";
         User changeUser = new User();
@@ -145,6 +167,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение имени E-mail пользователя без авторизации.")
+    @Description("Изменение имени и E-mail пользователя без авторизации. Проверка неуспешного ответа сервера.")
     public void changeUserNameAndEmailWithoutAuthorizationTest() {
         String newName = "TatyanaSergeevna";
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
@@ -156,6 +180,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение имени и пароля пользователя без авторизации.")
+    @Description("Изменение имени и пароля пользователя без авторизации. Проверка неуспешного ответа сервера.")
     public void changeUserNameAndPasswordWithoutAuthorizationTest() {
         String newPassword = "diplomNa100ballov";
         String newName = "TatyanaSergeevna";
@@ -167,6 +193,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение E-mail и пароля пользователя без авторизации.")
+    @Description("Изменение E-mail и пароля пользователя без авторизации. Проверка неуспешного ответа сервера.")
     public void changeUserEmailAndPasswordWithoutAuthorizationTest() {
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
         String newPassword = "diplomNa100ballov";
@@ -178,6 +206,8 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Изменение всех данных пользователя без авторизации.")
+    @Description("Изменение всех данных пользователя без авторизации. Проверка неуспешного ответа сервера.")
     public void changeAllUserFieldsWithoutAuthorizationTest() {
         String newEmail = "hochyChobiMenyaPohvalili@yandex.ru";
         String newPassword = "diplomNa100ballov";

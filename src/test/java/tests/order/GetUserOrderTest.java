@@ -2,6 +2,8 @@ package tests.order;
 
 import api.model.User;
 import api.steps.UserSteps;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -35,7 +37,8 @@ public class GetUserOrderTest {
     }
 
     @Test
-    //получаем список заказов авторизованного пользователя
+    @DisplayName("Получение списка заказов авторизованного пользователя.")
+    @Description("Получение списка заказов авторизованного пользователя. Проверка успешного ответа от сервера.")
     public void getUserOrderWithAuthorizationTest() {
         Response response = given().log().all()
                 .header("Content-Type", "application/json")
@@ -52,7 +55,8 @@ public class GetUserOrderTest {
 
 
     @Test
-    //получаем список заказов без авторизации
+    @DisplayName("Получение списка заказов без авторизации.")
+    @Description("Получение списка заказов без авторизации. Проверка неуспешного ответа от сервера.")
     public void getUserOrderWithoutAuthorizationTest() {
         Response response = given().log().all()
                 .header("Content-Type", "application/json")

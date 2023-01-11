@@ -2,6 +2,8 @@ package tests.user;
 
 import api.model.User;
 import api.steps.UserSteps;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -36,6 +38,8 @@ public class LoginUserTest {
     }
 
     @Test
+    @DisplayName("Авторизация пользователя.")
+    @Description("Авторизация пользователя с зарегистрированными случайными данными. Проверка успешного ответа сервера.")
     public void authorizationTest() {
         Response response = userSteps.sendPostRequestApiAuthLogin(user);
         response.then().log().all()
@@ -48,6 +52,8 @@ public class LoginUserTest {
     }
 
     @Test
+    @DisplayName("Авторизация пользователя без E-mail(а).")
+    @Description("Авторизация пользователя без E-mail(а). Проверка неуспешного ответа сервера.")
     public void authorizationWithoutEmailTest() {
         authUser.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
@@ -56,6 +62,8 @@ public class LoginUserTest {
     }
 
     @Test
+    @DisplayName("Авторизация пользователя без пароля.")
+    @Description("Авторизация пользователя без пароля. Проверка неуспешного ответа сервера.")
     public void authorizationWithoutPasswordTest() {
         authUser.setEmail(email);
         Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
@@ -63,12 +71,17 @@ public class LoginUserTest {
     }
 
     @Test
+    @DisplayName("Авторизация пользователя без E-mail(а) и пароля.")
+    @Description("Авторизация пользователя без E-mail(а) и пароля. Проверка неуспешного ответа сервера.")
     public void authorizationWithoutEmailAndPasswordTest() {
         Response response = userSteps.sendPostRequestApiAuthLogin(authUser);
         userSteps.checkFailedResponseApiAuthLogin(response);
     }
 
     @Test
+    @DisplayName("Авторизация пользователя с неверным E-mail(ом).")
+    @Description("Авторизация пользователя с невалидными E-mail(ом) и с валидными случайными паролем и именем. " +
+            "Проверка неуспешного ответа сервера.")
     public void authorizationWithWrongEmailTest() {
         authUser = new User(name, email, password);
         authUser.setEmail("haha" + email);
@@ -77,6 +90,9 @@ public class LoginUserTest {
     }
 
     @Test
+    @DisplayName("Авторизация пользователя с невалидным паролем.")
+    @Description("Авторизация пользователя с невалидным паролем и с валидными случайными E-mail и именем. " +
+            "Проверка неуспешного ответа сервера.")
     public void authorizationWithWrongPasswordTest() {
         authUser = new User(name, email, password);
         authUser.setPassword(password + "8765");

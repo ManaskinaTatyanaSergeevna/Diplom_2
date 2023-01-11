@@ -6,6 +6,8 @@ import api.model.Order;
 import api.model.User;
 import api.steps.OrderSteps;
 import api.steps.UserSteps;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -51,7 +53,8 @@ public class CreateOrderTest {
     }
 
     @Test
-    //создать заказ без авторизации
+    @DisplayName("Создание заказа без авторизации.")
+    @Description("Создание заказа без авторизации. Проверка успешного ответа от сервера.")
     public void createOrderWithoutAuthorizationTest() {
         Ingredients ingredients = orderSteps.getIngredients();
         ingr.add(ingredients.getData().get(0).get_id());
@@ -66,7 +69,8 @@ public class CreateOrderTest {
     }
 
     @Test
-    //создание заказа с авторизацией
+    @DisplayName("Создание заказа с авторизацией.")
+    @Description("Создание заказа с авторизацией. Проверка успешного ответа от сервера.")
     public void createOrderWithAuthorizationTest() {
         Ingredients ingredients = orderSteps.getIngredients();
         ingr.add(ingredients.getData().get(1).get_id());
@@ -90,21 +94,24 @@ public class CreateOrderTest {
     }
 
     @Test
-    //Создание заказа без ингредиентов без авторизации
+    @DisplayName("Создание заказа без ингредиентов и без авторизации")
+    @Description("Создание заказа без ингредиентов и без авторизации. Проверка неуспешного ответа от сервера.")
     public void createNullOrderWithoutAuthorization() {
         Response response = orderSteps.createOrderWithoutAuthorization(order);
         orderSteps.checkFailedResponseApiOrders(response);
     }
 
     @Test
-    //Создание заказа без ингредиентов с авторизацией
+    @DisplayName("Создание заказа без ингредиентов с авторизацией.")
+    @Description("Создание заказа без ингредиентов с авторизацией. Проверка неуспешного ответа от сервера.")
     public void createNullOrderWithAuthorization() {
         Response response = orderSteps.createOrderWithAuthorization(order, accessToken);
         orderSteps.checkFailedResponseApiOrders(response);
     }
 
     @Test
-    //создание заказа без авторизации с неверным хешем ингредиентов
+    @DisplayName("Создание заказа без авторизации с неверным хэшем ингредиентов.")
+    @Description("Создание заказа без авторизации с неверным хэшем ингредиентов. Проверка ошибки сервера.")
     public void createOrderWithoutAuthorizationWithWrongHashTest() {
         Ingredients ingredients = orderSteps.getIngredients();
         ingr.add(ingredients.getData().get(0).get_id() + "1234nhf8");
@@ -115,7 +122,8 @@ public class CreateOrderTest {
     }
 
     @Test
-    //создание заказа с авторизацией с неверным хешем ингредиентов
+    @DisplayName("Создание заказа с авторизацией с неверным хешем ингредиентов.")
+    @Description("Создание заказа с авторизацией с неверным хешем ингредиентов. Проверка ошибки сервера.")
     public void createOrderWithAuthorizationWithWrongHashTest() {
         Ingredients ingredients = orderSteps.getIngredients();
         ingr.add(ingredients.getData().get(1).get_id() + "1234nhf8");

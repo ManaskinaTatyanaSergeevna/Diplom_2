@@ -2,6 +2,8 @@ package tests.user;
 
 import api.model.User;
 import api.steps.UserSteps;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -19,6 +21,8 @@ public class CreateUserTest {
     private String name;
     private String email;
     private String password;
+    private UserSteps userSteps;
+    private User user;
 
     @Before
     public void setUp() {
@@ -30,13 +34,16 @@ public class CreateUserTest {
         name = RandomStringUtils.randomAlphanumeric(4, 20);
         email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
         password = RandomStringUtils.randomAlphanumeric(10, 20);
+        userSteps = new UserSteps();
+        user = new User();
     }
 
 
     @Test
+    @DisplayName("Регистрация уникального пользователя.")
+    @Description("Регистрация уникального пользователя со случайным набором данных. Проверка успешного ответа сервера.")
     public void createUserTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User(name, email, password);
+        user = new User(name, email, password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(true))
@@ -49,9 +56,10 @@ public class CreateUserTest {
 
 
     @Test
+    @DisplayName("Регистрация уже созданного пользователя.")
+    @Description("Регистрация уже созданного пользователя со случайным набором данных. Проверка неуспешного ответа сервера.")
     public void createTwoIdenticalUsersTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User(name, email, password);
+        user = new User(name, email, password);
         userSteps.sendPostRequestApiAuthRegister(user);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         response.then().log().all()
@@ -61,9 +69,9 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Регистрация пользователя без имени.")
+    @Description("Регистрация пользователя без имени, но со случайными e-mail и паролем. Проверка неуспешного ответа сервера.")
     public void createUserWithoutNameTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
         user.setEmail(email);
         user.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
@@ -71,9 +79,9 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Регистрация пользователя без E-mail.")
+    @Description("Регистрация пользователя без E-mail, но со случайными именем и паролем. Проверка неуспешного ответа сервера.")
     public void createUserWithoutEmailTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
         user.setName(name);
         user.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
@@ -81,9 +89,9 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Регистрация пользователя без пароля.")
+    @Description("Регистрация пользователя без пароля, но со случайными E-mail и именем.  Проверка неуспешного ответа сервера.")
     public void createUserWithoutPasswordTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
         user.setEmail(email);
         user.setName(name);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
@@ -91,40 +99,43 @@ public class CreateUserTest {
     }
 
     @Test
+    @DisplayName("Регистрация пользователя без имени и E-mail.")
+    @Description("Регистрация пользователя без имени и E-mail, но со случайным паролем.  Проверка неуспешного ответа сервера.")
     public void createUserWithoutNameAndEmailTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
         user.setPassword(password);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
+    @DisplayName("Регистрация пользователя без имени и пароля.")
+    @Description("Регистрация пользователя без имени и пароля, но со случайным E-mail.  Проверка неуспешного ответа сервера.")
     public void createUserWithoutNameAndPasswordTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
         user.setEmail(email);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
+    @DisplayName("Регистрация пользователя без E-mail и пароля.")
+    @Description("Регистрация пользователя без E-mail и пароля, но со случайным именем.  Проверка неуспешного ответа сервера.")
     public void createUserWithoutEmailAndPasswordTest() {
-        UserSteps userSteps = new UserSteps();
-        User user = new User();
         user.setName(name);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @Test
+    @DisplayName("Регистрация пользователя без всех данных.")
+    @Description("Регистрация пользователя без всех данных. Проверка неуспешного ответа сервера.")
     public void createUserWithoutAllTest() {
-        UserSteps userSteps = new UserSteps();
-        Response response = userSteps.sendPostRequestApiAuthRegister(new User());
+        Response response = userSteps.sendPostRequestApiAuthRegister(user);
         userSteps.checkFailedResponseApiAuthRegister(response);
     }
 
     @After
+    @DisplayName("Удаление пользователя.")
+    @Description("Удаление пользователя с созданными рандомными данными.")
     public void deleteRandomUser() {
         given().log().all()
                 .header("Content-Type", "application/json")

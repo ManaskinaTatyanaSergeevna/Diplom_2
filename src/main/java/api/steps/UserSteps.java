@@ -15,8 +15,7 @@ public class UserSteps {
     private final static String ERROR_MESSAGE_TEXT_LOGIN = "email or password are incorrect";
     private final static String ERROR_MESSAGE_TEXT_USER = "You should be authorised";
 
-    @Step
-    //регистрация
+    @Step("Регистрация пользователя. POST запрос на ручку /api/auth/register.")
     public Response sendPostRequestApiAuthRegister(User user) {
         return given().log().all()
                 .header("Content-type", "application/json")
@@ -25,8 +24,7 @@ public class UserSteps {
                 .post("/api/auth/register");
     }
 
-    @Step
-    //не получилось зарегистрироваться
+    @Step("Неуспешный ответ сервера на попытку регистрации пользователя.")
     public void checkFailedResponseApiAuthRegister(Response response) {
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(false))
@@ -35,8 +33,7 @@ public class UserSteps {
     }
 
 
-    @Step
-    //Авторизация
+    @Step("Авторизация пользователя. POST запрос на ручку /api/auth/login.")
     public Response sendPostRequestApiAuthLogin(User user) {
         return given()
                 .log()
@@ -47,8 +44,7 @@ public class UserSteps {
                 .post("/api/auth/login");
     }
 
-    @Step
-    //не получилось авторизоваться
+    @Step("Неуспешный ответ сервера на попытку авторизации пользователя.")
     public void checkFailedResponseApiAuthLogin(Response response) {
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(false))
@@ -56,8 +52,7 @@ public class UserSteps {
                 .and().statusCode(401);
     }
 
-    @Step
-    //изменить данные пользователя с авторизацией
+    @Step("Изменение данных пользователя с авторизацией. PATCH запрос на ручку /api/auth/user.")
     public Response sendPatchRequestWithAuthorizationApiAuthUser(User user, String token) {
         return given()
                 .log()
@@ -69,8 +64,7 @@ public class UserSteps {
                 .patch("/api/auth/user");
     }
 
-    @Step
-    //изменить данные пользователя без авторизации
+    @Step("Изменение данных пользователя без авторизации. PATCH запрос на ручку /api/auth/user.")
     public Response sendPatchRequestWithoutAuthorizationApiAuthUser(User user) {
         return given()
                 .log()
@@ -81,8 +75,7 @@ public class UserSteps {
                 .patch("/api/auth/user");
     }
 
-    @Step
-    //удачно изменили данные пользователя
+    @Step("Успешный ответ сервера на изменение данных пользователя.")
     public void checkSuccessResponseApiAuthUser(Response response, String email, String name) {
         response.then().log().all()
                 .assertThat()
@@ -92,8 +85,7 @@ public class UserSteps {
                 .and().statusCode(200);
     }
 
-    @Step
-    //неудачно изменили данные пользователя
+    @Step("Неуспешный ответ сервера на изменение данных пользователя.")
     public void checkFailedResponseApiAuthUser(Response response) {
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(false))
