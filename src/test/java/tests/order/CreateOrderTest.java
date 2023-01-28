@@ -71,8 +71,9 @@ public class CreateOrderTest {
     @Test
     @DisplayName("Создание заказа с авторизацией.")
     @Description("Создание заказа с авторизацией. Проверка успешного ответа от сервера.")
-    public void createOrderWithAuthorizationTest() {
+    public void createOrderWithAuthorizationTest() throws InterruptedException {
         Ingredients ingredients = orderSteps.getIngredients();
+        Thread.sleep(100);
         ingr.add(ingredients.getData().get(1).get_id());
         ingr.add(ingredients.getData().get(3).get_id());
         ingr.add(ingredients.getData().get(5).get_id());
@@ -96,7 +97,7 @@ public class CreateOrderTest {
     @Test
     @DisplayName("Создание заказа без ингредиентов и без авторизации")
     @Description("Создание заказа без ингредиентов и без авторизации. Проверка неуспешного ответа от сервера.")
-    public void createNullOrderWithoutAuthorization() {
+    public void createEmptyOrderWithoutAuthorization() {
         Response response = orderSteps.createOrderWithoutAuthorization(order);
         orderSteps.checkFailedResponseApiOrders(response);
     }
@@ -104,7 +105,8 @@ public class CreateOrderTest {
     @Test
     @DisplayName("Создание заказа без ингредиентов с авторизацией.")
     @Description("Создание заказа без ингредиентов с авторизацией. Проверка неуспешного ответа от сервера.")
-    public void createNullOrderWithAuthorization() {
+    public void createEmptyOrderWithAuthorization() throws InterruptedException {
+        Thread.sleep(100);
         Response response = orderSteps.createOrderWithAuthorization(order, accessToken);
         orderSteps.checkFailedResponseApiOrders(response);
     }
@@ -112,8 +114,9 @@ public class CreateOrderTest {
     @Test
     @DisplayName("Создание заказа без авторизации с неверным хэшем ингредиентов.")
     @Description("Создание заказа без авторизации с неверным хэшем ингредиентов. Проверка ошибки сервера.")
-    public void createOrderWithoutAuthorizationWithWrongHashTest() {
+    public void createOrderWithoutAuthorizationWithWrongHashTest() throws InterruptedException {
         Ingredients ingredients = orderSteps.getIngredients();
+        Thread.sleep(100);
         ingr.add(ingredients.getData().get(0).get_id() + "1234nhf8");
         ingr.add(ingredients.getData().get(8).get_id() + "9876bgfj2");
         Response response = orderSteps.createOrderWithoutAuthorization(order);

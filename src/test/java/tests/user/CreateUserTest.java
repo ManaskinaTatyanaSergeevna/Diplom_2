@@ -30,12 +30,13 @@ public class CreateUserTest {
     }
 
     @Before
-    public void createRandomData() {
+    public void createRandomData() throws InterruptedException {
         name = RandomStringUtils.randomAlphanumeric(4, 20);
         email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
         password = RandomStringUtils.randomAlphanumeric(10, 20);
         userSteps = new UserSteps();
         user = new User();
+        Thread.sleep(200);
     }
 
 
@@ -58,9 +59,10 @@ public class CreateUserTest {
     @Test
     @DisplayName("Регистрация уже созданного пользователя.")
     @Description("Регистрация уже созданного пользователя со случайным набором данных. Проверка неуспешного ответа сервера.")
-    public void createTwoIdenticalUsersTest() {
+    public void createTwoIdenticalUsersTest() throws InterruptedException {
         user = new User(name, email, password);
         userSteps.sendPostRequestApiAuthRegister(user);
+        Thread.sleep(100);
         Response response = userSteps.sendPostRequestApiAuthRegister(user);
         response.then().log().all()
                 .assertThat().body("success", Matchers.is(false))

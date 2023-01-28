@@ -3,6 +3,7 @@ package api.steps;
 import api.model.Ingredients;
 import api.model.Order;
 import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 
@@ -22,7 +23,7 @@ public class OrderSteps {
 
     @Step("Создание заказа с авторизацией. POST запрос на ручку /api/orders.")
     public Response createOrderWithAuthorization(Order order, String token){
-        return given().log().all()
+        return given().log().all().filter(new AllureRestAssured())
                 .header("Content-Type", "application/json")
                 .header("authorization", token)
                 .body(order)
@@ -33,6 +34,7 @@ public class OrderSteps {
     @Step("Создание заказа без авторизации. POST запрос на ручку /api/orders.")
     public  Response createOrderWithoutAuthorization(Order order){
         return given().log().all()
+                .filter(new AllureRestAssured())
                 .header("Content-Type", "application/json")
                 .body(order)
                 .when()

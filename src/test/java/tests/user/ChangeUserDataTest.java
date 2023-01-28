@@ -25,7 +25,7 @@ public class ChangeUserDataTest {
 
 
     @Before
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
         name = RandomStringUtils.randomAlphanumeric(4, 20);
         email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
@@ -34,6 +34,7 @@ public class ChangeUserDataTest {
         user = new User(name, email, password);
         Response resp = userSteps.sendPostRequestApiAuthRegister(user);
         accessToken = JsonPath.from(resp.getBody().asString()).get("accessToken");
+        Thread.sleep(200);
     }
 
 

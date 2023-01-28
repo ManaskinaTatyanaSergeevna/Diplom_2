@@ -26,7 +26,7 @@ public class LoginUserTest {
     private User authUser;
 
     @Before
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
         name = RandomStringUtils.randomAlphanumeric(4, 20);
         email = RandomStringUtils.randomAlphanumeric(6, 10) + "@yandex.ru";
@@ -35,6 +35,7 @@ public class LoginUserTest {
         user = new User(name, email, password);
         authUser = new User();
         userSteps.sendPostRequestApiAuthRegister(user);
+        Thread.sleep(200);
     }
 
     @Test
@@ -104,7 +105,7 @@ public class LoginUserTest {
     public void deleteRandomUser() {
         given().log().all()
                 .header("Content-Type", "application/json")
-                .body(new User(name, email, password))
+                .body(user)
                 .delete("/api/auth/user");
     }
 }
