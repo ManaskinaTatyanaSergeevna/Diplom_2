@@ -42,7 +42,7 @@ mvn allure:report
 .gitignore
 pom.xml
 README.md
-src
+   src
    |-- main
    |   |-- java
    |   |   |-- api
